@@ -148,11 +148,11 @@ class Admin extends Linker {
     return new AdminCustomers(this.host, null, this._q(query));
   }
 
-  draft_orders(query = null) {
+  draftOrders(query = null) {
     return new AdminDraftOrders(this.host, this._q(query));
   }
 
-  draft_order(id, query = null) {
+  draftOrder(id, query = null) {
     this._idRequired(id);
     return new AdminDraftOrder(this.host, id, this._q(query));
   }
@@ -219,7 +219,7 @@ class AdminOrder extends String {
     super(base);
   }
 
-  shipping_labels() {
+  shippingLabels() {
     return new AdminShippingLabel(`${this}/shipping_labels`);
   }
 }

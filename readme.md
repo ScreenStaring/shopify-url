@@ -16,16 +16,16 @@ const url = new Admin('shopname');
 url.toString();
 
 // https://shopname.myshopify.com/admin/orders
-url.orders();
+url.orders().toString();
 
 // https://shopname.myshopify.com/admin/orders/6303508996
-url.order(6303508996);
+url.order(6303508996).toString();
 
 // https://shopname.myshopify.com/admin/products
-url.products();
+url.products().toString();
 
 // https://shopname.myshopify.com/admin/products/345323423
-url.product(345323423);
+url.product(345323423).toString();
 
 // https://shopname.myshopify.com/admin/products/345323423/variants/2421342331
 url.product(345323423).variant(2421342331);
@@ -41,10 +41,10 @@ const { Store } = require('shopify-url');
 const url = new Store('shopname'); // can also be the site's top-level domain
 
 // https://shopname.myshopify.com/collections
-url.collections();
+url.collections().toString();
 
 // https://shopname.myshopify.com/collections/amaaaaazing-thangz
-url.collection('amaaaaazing-thangz');
+url.collection('amaaaaazing-thangz').toString();
 ```
 
 And more!
@@ -59,7 +59,7 @@ const { Store } = require('shopify_url');
 const url = new Store('shopname'); // can also be the site's top-level domain
 
 // https://shopname.myshopify.com/products/some-handle?tracking=data
-url.products('some-handle', { tracking: 'data' });
+url.products('some-handle', { tracking: 'data' }).toString();
 ```
 
 ### Use in the Browser
@@ -71,7 +71,7 @@ url.products('some-handle', { tracking: 'data' });
   console.log(store.product(123).toString());
 
   const admin = new ShopifyUrl.Admin('my-shop');
-  console.log(admin.order(456).shipping_labels().new());
+  console.log(admin.order(456).shippingLabels().new());
 </script>
 ```
 

@@ -107,13 +107,13 @@ describe("Admin", () => {
   });
 
   test("order shipping_labels returns URL", () => {
-    expect(String(admin.order(456).shipping_labels())).toBe(
+    expect(String(admin.order(456).shippingLabels())).toBe(
       "https://my-shop.myshopify.com/admin/orders/456/shipping_labels"
     );
   });
 
   test("order shipping_labels new returns URL", () => {
-    expect(admin.order(456).shipping_labels().new()).toBe(
+    expect(admin.order(456).shippingLabels().new()).toBe(
       "https://my-shop.myshopify.com/admin/orders/456/shipping_labels/new"
     );
   });
@@ -161,25 +161,25 @@ describe("Admin", () => {
   });
 
   test("draft_order returns URL", () => {
-    expect(String(admin.draft_order(10))).toBe(
+    expect(String(admin.draftOrder(10))).toBe(
       "https://my-shop.myshopify.com/admin/draft_orders/10"
     );
   });
 
   test("draft_order duplicate returns URL", () => {
-    expect(admin.draft_order(10).duplicate()).toBe(
+    expect(admin.draftOrder(10).duplicate()).toBe(
       "https://my-shop.myshopify.com/admin/draft_orders/10/duplicate"
     );
   });
 
   test("draft_orders returns URL", () => {
-    expect(String(admin.draft_orders())).toBe(
+    expect(String(admin.draftOrders())).toBe(
       "https://my-shop.myshopify.com/admin/draft_orders"
     );
   });
 
   test("draft_orders new returns URL", () => {
-    expect(admin.draft_orders().new()).toBe(
+    expect(admin.draftOrders().new()).toBe(
       "https://my-shop.myshopify.com/admin/draft_orders/new"
     );
   });
