@@ -1,0 +1,45 @@
+{
+  "name": "shopify-url",
+  "version": "0.0.1",
+  "description": "Build URLs to Shopify web pages",
+  "keywords": [
+    "shopify",
+    "url"
+  ],
+  "homepage": "https://github.com/ScreenStaring/shopify-url#readme",
+  "bugs": {
+    "url": "https://github.com/ScreenStaring/shopify-url/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ScreenStaring/shopify-url.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ScreenStaring/shopify-url/issues"
+  },
+  "license": "ISC",
+  "author": "Skye Shaw <skye.shaw@gmail.com>",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "browser": "dist/index.umd.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js"
+    }
+  },
+  "jsdelivr": "dist/index.umd.js",
+  "unpkg": "dist/index.umd.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c rollup.config.mjs",
+    "test": "jest",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "rollup": "^4.0.0"
+  }
+}
