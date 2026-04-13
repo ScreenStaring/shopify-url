@@ -77,7 +77,8 @@ url.products('some-handle', { tracking: 'data' }).toString();
 
 ### See Also
 
-The [Ruby Shopify URL gem](https://github.com/ScreenStaring/shopify_url) from which this is based.
+- [shopify-gid](https://www.npmjs.com/package/shopify-gid) - encoder/decoder for ID values returned from the Shopify Storefront GraphQL API
+- The [Ruby Shopify URL gem](https://github.com/ScreenStaring/shopify_url) from which this is based.
 
 ---
 
