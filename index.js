@@ -254,8 +254,13 @@ class AdminTheme extends String {
     super(url);
   }
 
-  editor() {
-    return `${this}/editor`;
+  editor(params = null) {
+    let url = `${this}/editor`;
+    const qs = params && Object.keys(params).length
+      ? new URLSearchParams(Object.entries(params)).toString()
+      : "";
+    if (qs) url += `?${qs}`;
+    return url;
   }
 }
 

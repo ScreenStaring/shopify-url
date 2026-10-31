@@ -201,4 +201,10 @@ describe("Admin", () => {
       "https://my-shop.myshopify.com/admin/themes/55/editor"
     );
   });
+
+  test("theme editor with query params", () => {
+    expect(admin.theme(55).editor({ context: 'apps', activateAppId: 'APPID/loader' })).toBe(
+      "https://my-shop.myshopify.com/admin/themes/55/editor?context=apps&activateAppId=APPID%2Floader"
+    );
+  });
 });
