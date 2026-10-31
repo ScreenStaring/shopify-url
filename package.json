@@ -1,6 +1,6 @@
 {
   "name": "shopify-url",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Build URLs to Shopify web pages",
   "keywords": [
     "shopify",

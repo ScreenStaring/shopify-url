@@ -33,6 +33,12 @@ url.product(345323423).variant(2421342331);
 
 And more!
 
+#### Link to Enable Your App's Theme Embed
+
+```js
+url.theme('current').editor({context: 'apps', activateAppId: 'APPID/loader'}).toString();
+```
+
 ### Store URLs
 
 ```js
