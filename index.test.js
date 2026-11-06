@@ -100,6 +100,60 @@ describe("Admin", () => {
     expect(String(admin)).toBe("https://my-shop.myshopify.com/admin");
   });
 
+  test("constructor accepts bare shop handle", () => {
+    expect(String(new Admin("my-shop"))).toBe(
+      "https://my-shop.myshopify.com/admin"
+    );
+    expect(String(new Admin("MY-SHOP"))).toBe(
+      "https://MY-SHOP.myshopify.com/admin"
+    );
+  });
+
+  test("constructor accepts full myshopify.com domain", () => {
+    expect(String(new Admin("my-shop.myshopify.com"))).toBe(
+      "https://my-shop.myshopify.com/admin"
+    );
+    expect(String(new Admin("MY-SHOP.myshopify.com"))).toBe(
+      "https://MY-SHOP.myshopify.com/admin"
+    );
+  });
+
+  test("constructor throws when shop is empty", () => {
+    expect(() => new Admin("")).toThrow("shop required");
+    expect(() => new Admin(null)).toThrow("shop required");
+    expect(() => new Admin("   ")).toThrow("shop required");
+  });
+
+  test("constructor rejects invalid shop domains to prevent injection and redirect", () => {
+    const invalidShops = [
+      "javascript:alert(1)",
+      "javascript://test%0aalert(1)",
+      "<script>alert(1)</script>",
+      "data:text/html,test",
+      "https://evil.com#.myshopify.com",
+      "https://evil.com?.myshopify.com",
+      "https://evil.com/.myshopify.com",
+      "https://my-shop.myshopify.com",
+      "http://my-shop.myshopify.com",
+      "//evil.com",
+      "evil.com",
+      "foo.com",
+      "my-shop.myshopify.com.evil.com",
+      "my-shop.myshopify.com/admin",
+      "my-shop/path",
+      "my-shop?param=val",
+      "my-shop#hash",
+      "my_shop",
+      "my shop",
+      "my@shop",
+      ".myshopify.com",
+    ];
+
+    for (const shop of invalidShops) {
+      expect(() => new Admin(shop)).toThrow("invalid shop");
+    }
+  });
+
   test("order returns URL with id", () => {
     expect(String(admin.order(456))).toBe(
       "https://my-shop.myshopify.com/admin/orders/456"

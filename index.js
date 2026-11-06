@@ -1,4 +1,5 @@
 const TOP_LEVEL_DOMAIN = ".myshopify.com";
+const SHOP_DOMAIN_PATTERN = /^[a-z0-9-]+(\.myshopify\.com)?$/i;
 
 class Linker {
   constructor(shop) {
@@ -132,6 +133,9 @@ class StoreBlogs extends String {
 class Admin extends Linker {
   constructor(shop) {
     super(shop);
+    if (!SHOP_DOMAIN_PATTERN.test(shop)) {
+      throw new Error("invalid shop");
+    }
     if (!this.host.endsWith(TOP_LEVEL_DOMAIN)) {
       this.host += TOP_LEVEL_DOMAIN;
     }
